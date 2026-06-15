@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배달 끊기 챌린지 - Delivery Detox</title>
+  <meta name="description" content="배달앱을 켜고 싶을 때 여는 챌린지 웹앱. 충동 구매를 잠시 멈추고 돈을 절약하세요!">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Mobile container -->
+  <div class="app-frame">
+    
+    <!-- 1. MAIN SCREEN (DASHBOARD) -->
+    <section id="main-screen" class="screen">
+      <header class="app-header">
+        <div class="logo-area">
+          <img src="assets/logo.svg" alt="배달 끊기 챌린지 로고" class="app-logo">
+          <h1>배달 끊기 챌린지</h1>
+        </div>
+        <button id="reset-btn" class="icon-btn" title="기록 초기화" aria-label="기록 초기화">🔄</button>
+      </header>
+
+      <main class="main-content">
+        <!-- 1.1 Stats Dashboard Grid -->
+        <div class="dashboard-grid">
+          <div class="dashboard-card money-card">
+            <span class="card-label">🔥 오늘 절약한 돈</span>
+            <span class="card-value" id="today-saved-txt">0원</span>
+          </div>
+          <div class="dashboard-card streak-card">
+            <span class="card-label">📅 연속 성공 기록</span>
+            <span class="card-value streak-value" id="streak-txt">0일째</span>
+          </div>
+          <div class="dashboard-card total-card">
+            <span class="card-label">🏆 총 누적 절약 금액</span>
+            <span class="card-value" id="total-saved-txt">0원</span>
+          </div>
+        </div>
+
+        <!-- 1.2 Temptation Food Feed (Fictional delivery menu list) -->
+        <div class="section-container">
+          <h3 class="section-title">🤤 지금 어떤 야식이 당기시나요?</h3>
+          <p class="section-subtitle">참고 싶은 메뉴를 터치해 선택하세요!</p>
+          <div class="menu-list" id="menu-list-container">
+            <!-- Fictional food categories generated here dynamically -->
+          </div>
+        </div>
+
+        <!-- 1.3 Trigger Mission Action CTA -->
+        <div class="main-actions-container">
+          <button id="start-mission-btn" class="primary-btn start-btn" disabled>⚡ 참기 미션 시작하기</button>
+        </div>
+      </main>
+    </section>
+
+    <!-- 2. ACTIVE MISSION TIMER OVERLAY -->
+    <div id="mission-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        
+        <!-- 2.1 Spinner section inside overlay -->
+        <div id="overlay-spinner-section" class="overlay-spinner-section">
+          <header class="mission-header">
+            <h2>🎡 디톡스 미션 룰렛</h2>
+            <p class="mission-desc">룰렛이 돌아가며 오늘의 인내 챌린지를 선정하고 있습니다.</p>
+          </header>
+          <div class="spinner-container">
+            <div class="spinner-pointer">▼</div>
+            <div class="spinner-wrapper">
+              <img src="assets/spinner.svg" alt="미션 룰렛" id="spinner-wheel">
+            </div>
+          </div>
+        </div>
+
+        <!-- 2.2 Active Timer section inside overlay -->
+        <div id="overlay-active-section" class="overlay-active-section hidden">
+          <header class="mission-header">
+            <h2>🎯 참기 미션 진행 중!</h2>
+            <p class="mission-desc">지금 고비를 넘기면 배달비가 고스란히 통장으로 갑니다!</p>
+          </header>
+          
+          <main class="mission-content">
+            <div class="mission-card">
+              <span class="mission-badge" id="mission-type-badge">미션 진행 중</span>
+              <h3 id="mission-title">1분 참기 미션</h3>
+              <p id="mission-instruction">눈을 감고 잠시 배달 생각을 잊어보세요.</p>
+              
+              <!-- Breathing Ring Container -->
+              <div id="breathing-ring-container" class="breathing-ring-container hidden">
+                <div class="breathing-ring"></div>
+                <div class="breathing-text" id="breathing-text">들숨</div>
+              </div>
+
+              <!-- Countdown Timer -->
+              <div class="timer-display" id="timer-txt">01:00</div>
+            </div>
+            
+            <div class="mission-actions">
+              <button id="complete-mission-btn" class="success-btn" disabled>⌛ 미션 완료 대기 중</button>
+            </div>
+          </main>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 3. SUCCESS CELEBRATION OVERLAY -->
+    <div id="success-overlay" class="overlay hidden">
+      <div class="overlay-content success-layout">
+        <main class="success-content">
+          <img src="assets/success.svg" alt="성공 축하 트로피" class="success-trophy">
+          <h2 class="success-title">🎉 참기 성공!</h2>
+          <p class="success-message" id="success-saved-message">오늘 가상의 배달비 18,000원을 지켰습니다!</p>
+
+          <!-- Dynamic canvas-generated share card -->
+          <div class="share-card-container">
+            <canvas id="share-canvas" width="400" height="400"></canvas>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="success-actions">
+            <button id="download-share-btn" class="primary-btn share-btn">💾 인증 이미지 저장</button>
+            
+            <div class="choice-buttons">
+              <button id="eat-home-btn" class="choice-btn home-food">🍳 집밥 먹기</button>
+              <button id="keep-resisting-btn" class="choice-btn keep-going">🛡️ 계속 참기</button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Reset Confirmation Dialog Modal -->
+  <div id="confirm-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <h3>⚠️ 기록 초기화</h3>
+      <p>지금까지 저장한 절약 금액과 연속 성공 기록이 모두 초기화됩니다. 정말로 삭제하시겠습니까?</p>
+      <div class="modal-actions">
+        <button id="confirm-cancel-btn" class="modal-btn secondary">취소</button>
+        <button id="confirm-ok-btn" class="modal-btn primary">초기화</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

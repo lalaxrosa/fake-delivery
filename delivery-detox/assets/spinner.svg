@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="300" height="300">
+  <!-- Outer Rim Shadow / Border -->
+  <circle cx="50" cy="50" r="48" fill="none" stroke="#E2E8F0" stroke-width="2" />
+  
+  <!-- Sectors -->
+  <!-- Sector 1: ⏱️ 30s Wait (Point/Coral #FF6B6B) -->
+  <path d="M 50 50 L 95 50 A 45 45 0 0 1 63.9 92.8 Z" fill="#FF8787" />
+  
+  <!-- Sector 2: 💧 Water (Light Blue #4DABF7) -->
+  <path d="M 50 50 L 63.9 92.8 A 45 45 0 0 1 13.6 76.5 Z" fill="#74C0FC" />
+  
+  <!-- Sector 3: 🌬️ Deep Breath (Teal/Mint #3BC9DB) -->
+  <path d="M 50 50 L 13.6 76.5 A 45 45 0 0 1 13.6 23.5 Z" fill="#66D9E8" />
+  
+  <!-- Sector 4: 🚶 Walk (Green #51CF66) -->
+  <path d="M 50 50 L 13.6 23.5 A 45 45 0 0 1 63.9 7.2 Z" fill="#8CE99A" />
+  
+  <!-- Sector 5: ⏳ 1m Wait (Yellow/Orange #FCC419) -->
+  <path d="M 50 50 L 63.9 7.2 A 45 45 0 0 1 95 50 Z" fill="#FFE066" />
+
+  <!-- Divider lines -->
+  <line x1="50" y1="50" x2="95" y2="50" stroke="#FFFFFF" stroke-width="1.5" />
+  <line x1="50" y1="50" x2="63.9" y2="92.8" stroke="#FFFFFF" stroke-width="1.5" />
+  <line x1="50" y1="50" x2="13.6" y2="76.5" stroke="#FFFFFF" stroke-width="1.5" />
+  <line x1="50" y1="50" x2="13.6" y2="23.5" stroke="#FFFFFF" stroke-width="1.5" />
+  <line x1="50" y1="50" x2="63.9" y2="7.2" stroke="#FFFFFF" stroke-width="1.5" />
+
+  <!-- Emojis & Labels -->
+  <!-- Sector 1: 30s Wait (Angle 36deg) -->
+  <g transform="translate(72.6, 68.5)">
+    <text font-size="8" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif">⏱️</text>
+  </g>
+  <!-- Sector 2: Water (Angle 108deg) -->
+  <g transform="translate(41.3, 78.6)">
+    <text font-size="8" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif">💧</text>
+  </g>
+  <!-- Sector 3: Deep Breath (Angle 180deg) -->
+  <g transform="translate(23.0, 50.0)">
+    <text font-size="8" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif">🌬️</text>
+  </g>
+  <!-- Sector 4: Walk (Angle 252deg) -->
+  <g transform="translate(41.3, 21.4)">
+    <text font-size="8" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif">🚶</text>
+  </g>
+  <!-- Sector 5: 1m Wait (Angle 324deg) -->
+  <g transform="translate(72.6, 31.5)">
+    <text font-size="8" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif">⏳</text>
+  </g>
+
+  <!-- Center Pin / Fidget Cap -->
+  <circle cx="50" cy="50" r="14" fill="#FFFFFF" shadow="0 2px 5px rgba(0,0,0,0.15)" />
+  <circle cx="50" cy="50" r="10" fill="#212529" />
+  <circle cx="50" cy="50" r="3" fill="#FFFFFF" />
+</svg>

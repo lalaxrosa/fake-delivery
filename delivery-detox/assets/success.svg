@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="120" height="120">
+  <!-- Light background glow -->
+  <circle cx="50" cy="50" r="45" fill="#51CF66" fill-opacity="0.1" />
+  
+  <!-- Tiny sparkles -->
+  <path d="M 25 25 L 27 28 L 30 28 L 28 30 L 29 33 L 26 31 L 23 33 L 24 30 L 22 28 L 25 28 Z" fill="#FFD43B" />
+  <path d="M 78 22 L 79 24 L 81 24 L 80 26 L 81 28 L 79 27 L 77 28 L 78 26 L 76 24 L 78 24 Z" fill="#FFD43B" />
+  <path d="M 20 70 L 21 72 L 23 72 L 22 74 L 23 76 L 21 75 L 19 76 L 20 74 L 18 72 L 20 72 Z" fill="#FFD43B" />
+  
+  <!-- Trophy Cup -->
+  <path d="M 32 32 H 68 V 52 C 68 62 60 70 50 70 C 40 70 32 62 32 52 Z" fill="#FFD43B" stroke="#FAB005" stroke-width="2" />
+  
+  <!-- Trophy Handles -->
+  <path d="M 32 38 H 26 V 46 H 32" fill="none" stroke="#FAB005" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 68 38 H 74 V 46 H 68" fill="none" stroke="#FAB005" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Trophy Stand -->
+  <path d="M 50 70 V 80 H 42 V 85 H 58 V 80 H 50 Z" fill="#E9ECEF" stroke="#CED4DA" stroke-width="1.5" />
+  <rect x="36" y="84" width="28" height="4" rx="2" fill="#495057" />
+  
+  <!-- Success Checkmark inside Trophy -->
+  <path d="M 42 48 L 47 53 L 58 42" fill="none" stroke="#51CF66" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
